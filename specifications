@@ -1,0 +1,66 @@
+Collegare Inverter Voltronic a Home Assistant senza MQTT con ESPHome
+Questa guida e' rivolta a tutti coloro che vogliono monitorare da remoto il loro inverter Voltronic o "similari" attraverso il cellulare o il pc in maniera semplice senza bisogno di MQTT , completamente Wi-Fi e con tantissime potenzialita' :
+
+Prerequisiti :
+Istanza Home Assistant Installation - Home Assistant (home-assistant.io) installata per esempio : raspberry, miniPC, macchina virtuale ecc...
+
+
+Inverter Voltronic o similare che abbiano la porta di comunicazione RS-232 ( porta PC - porta RJ45 )
+ 
+
+Progetto:
+L'idea nasce dal fatto che all'interno degli Inverter Voltronic che hanno già integrata la scheda Wi-FI , e che quindi hanno la possibilità di essere monitorati attraverso le varie APP e il sito https://www.dessmonitor.com/ , esiste (per effettuare questa connessione) una schedina ESP32 (veramente una ESP8266) che ha a bordo un firmware ed una chiave API che ne consentono l'autenticazione sui "server Voltronic".
+
+Da questo, girando in rete, abbiamo realizzato di poter fare la stessa cosa con un server locale dedicato, ma ancora più semplicemente di acquisire i dati su una piattaforma come Homeassistant.
+
+Documentazione :
+Istruzioni ESPHome dedicate per inverter: PipSolar PV Inverter — ESPHome
+
+Pagina GitHub di riferimento : GitHub - syssi/esphome-pipsolar: ESPHome component to monitor and control a pipsolar inverter via RS232
+
+Pin-Out per collegamenti: ESPhome Axpert 5k RS232 Pinout - The Internet of Things - Power Forum - Renewable Energy Discussion
+
+e anche PIP 2424MSE1 support · Issue #3 · syssi/esphome-pipsolar · GitHub
+
+Piedinatura dei vari modelli di ESP32 ESP8266: ESP8266 Pinout Reference: Which GPIO pins should you use? | Random Nerd Tutorials
+
+Procedura in italiano per installare il componente aggiuntivo ESPHome su homeassistant : ESPHome installazione su Home Assistant - Mauro Alfieri Wearable Domotica Robotica
+
+ 
+
+Componenti necessari :
+Modulo ESP32 ( questo è il più piccolo ed economico D1 mini ESP8266 )
+
+
+Modulo conversione RS232 in TTL per ESP32
+
+
+Modulo di alimentazione diretta da Inverter ( preleva i 12V dal piedino n.4 dell'Inverter e lo converte in 3.3V per il circuito ESP32 )
+
+
+Cablaggi :
+ 
+
+      
+
+                
+ 
+Programmazione:
+Una volta cablate le varie schedine, e inizializzato l'ESP8266 come da documentazione , è sufficiente andare nel menu ESPHome e dal link EDIT aggiungere il codice come qui :
+
+esphome-pipsolar/esp8266-example.yaml at main · syssi/esphome-pipsolar · GitHub
+
+
+
+ovviamente adattandolo alle proprie esigenze, ad esempio inserendo od escludendo dei parametri per noi interessanti ( inserendo o cancellando il simbolo # davanti alle linee di codice si esclude/include il sensore ) .
+
+Consigliamo di eliminare tutta la parte MQTT broker che a noi non interessa, lasciare invece attiva la parte "api" che dovrebbe essere gia' presente nel file ( cosi come la parte wifi ) e di eliminare la parte "switch" che potrebbe dare problemi.
+
+PS: Tutti gli aggiornamenti che faremo da ora in avanti saranno caricati via Wi-Fi in quanto il collegamento dell'ESP via USB va fatto solo la prima volta per inizializzarlo!
+
+Monitoraggio Remoto Inverter dalla APP Homeassistant :
+Ora le impostazioni dei pannelli di controllo, AUTOMAZIONI e personalizzazioni sono infinite, dal controllo di "EVENTI" particolari in base al carico o alla produzione, l'invio di notifiche (anche vocali tramite script), grafici, consumi, statistiche, ecc...
+
+Qui qualche screen dalla app di esempio:
+
+      

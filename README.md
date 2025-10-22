@@ -6,10 +6,12 @@ Questa guida e' rivolta a tutti coloro che vogliono monitorare da remoto il loro
 **Prerequisiti :**
 
 Istanza Home Assistant Installation - Home Assistant (home-assistant.io) installata per esempio : raspberry, miniPC, macchina virtuale ecc...
+
 ![ras](https://github.com/user-attachments/assets/8147a74f-9b06-45e4-8389-261e35d54be9)
 
 
 Inverter Voltronic o similare che abbiano la porta di comunicazione RS-232 ( porta PC - porta RJ45 )
+
  ![porta rs232](https://github.com/user-attachments/assets/2c6ff71c-67b2-47e0-bce9-db8b022bcf91)
 
 **Progetto:**

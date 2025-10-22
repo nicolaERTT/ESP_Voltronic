@@ -78,6 +78,7 @@ Qui qualche screen dalla app di esempio:
 <img width="300" height="2400" alt="Screenshot_20240329-081711" src="https://github.com/user-attachments/assets/edd7e484-1cd0-4c80-a276-b1044f50900c" />
 <img width="300" height="2400" alt="Screenshot_20240329-081735" src="https://github.com/user-attachments/assets/0fbdf288-0627-475b-be37-f12ada1d0b5e" />
 <img width="300" height="2400" alt="Screenshot_20240329-081807" src="https://github.com/user-attachments/assets/2e553d71-a7fc-41d7-8bb4-60dc574cf785" />
+<img width="300" height="2400" alt="Screenshot_20240329-081743" src="https://github.com/user-attachments/assets/8b50aad0-4bbd-460d-897c-250c54b43300" />
 
       
 
